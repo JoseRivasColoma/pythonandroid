@@ -1,0 +1,25 @@
+{% extends 'vistas/base.html'%}
+{% block contenido%}
+<div class="container">
+     <table class="table">
+         <tr>
+             <td>Patente</td>
+             <td>Nombre Dueño</td>
+             <td>Marca</td>
+             <td>Modelo</td>
+             <td>Año</td>
+             <td>Tipo</td>
+         </tr>
+         {% for fila in listado%}
+         <tr>
+             <td>{{fila.patente}}</td>
+             <td>{{fila.dueno}}</td>
+             <td>{{fila.marca}}</td>
+             <td>{{fila.modelo}}</td>
+             <td>{{fila.ano}}</td>
+             <td>{{fila.tipo}}</td>
+         </tr>
+         {% endfor %}
+     </table>
+</div>
+{% endblock contenido%}

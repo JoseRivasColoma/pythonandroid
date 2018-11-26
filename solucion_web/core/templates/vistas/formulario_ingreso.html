@@ -1,0 +1,38 @@
+{% extends 'vistas/base.html' %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="patente">Patente</label>
+        <input type="text" class="form-control" id="patente" name="patente" placeholder="Ingrese patente">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Dueño</label>
+        <input type="text" class="form-control" id="nombre"name="dueno" placeholder="Ingrese nombre">
+    </div>
+    <div class="form-group">
+        <label for="marca">Marca</label>
+        <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingrese marca">
+    </div>
+    <div class="form-group">
+        <label for="modelo">Modelo</label>
+        <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Ingrese modelo">
+    </div>
+    <div class="form-group">
+        <label for="ano">Año</label>
+        <input type="number" class="form-control" id="ano" name="ano" placeholder="Ingrese año">
+    </div>
+    <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <select class="form control" name="tipo">
+            <option>Seleccione</option>
+            {% for dato in tipos %}
+            <option value="{{dato.id}}">{{dato.descripcion}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<h1>{{mensaje}}</h1>
+{% endblock contenido %}
